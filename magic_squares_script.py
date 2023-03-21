@@ -1,8 +1,9 @@
 import copy
 import math
+from typing import List
 
 
-def get_positive_odd_integer():
+def get_positive_odd_integer() -> None:
     """
     Get an odd, positive integer from standard input
     Upon invalid user input (negative, 1 or even numbers), re-prompt
@@ -20,19 +21,19 @@ def get_positive_odd_integer():
         return get_positive_odd_integer()
 
 
-def create_matrix(magic_order):
-    outer_list = [[0 for i in range(magic_order)] for i in range(magic_order)]
+def create_matrix(magic_order: int) -> List[List[int]]:
+    outer_list = [[0 for _ in range(magic_order)] for _ in range(magic_order)]
     return outer_list
 
 
-def pretty_print_matrix(matrix):
+def pretty_print_matrix(matrix: List[List[int]]) -> None:
     for row in range(len(matrix)):
         for col in range(len(matrix)):
             print(str(matrix[row][col]) + "\t", end="")
         print()
 
 
-def create_magic_square(matrix):
+def create_magic_square(matrix: List[List[int]]) -> List[List[int]]:
     """
     Takes in an n by n matrix
     """
@@ -58,13 +59,13 @@ def create_magic_square(matrix):
     return matrix_copy
 
 
-def main():
+def main() -> None:
     magic_order = get_positive_odd_integer()
     empty_matrix = create_matrix(magic_order)
 
     magic_square = create_magic_square(empty_matrix)
-    print(f"The magic square of {magic_order} is: ")
 
+    print(f"The magic square of {magic_order} is: ")
     pretty_print_matrix(magic_square)
 
 
